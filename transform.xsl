@@ -2,10 +2,10 @@
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
-  <bebida>
-      <xsl:for-each select="/bebida">
-		<nombre><xsl:value-of select="nombre"/></nombre>
+  <drink>
+      <xsl:for-each select="/drink">
+		<name><xsl:value-of select="name"/></name>
       </xsl:for-each>
-  </bebida>
+  </drink>
 </xsl:template>
 </xsl:stylesheet>

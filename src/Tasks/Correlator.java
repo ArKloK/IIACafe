@@ -64,14 +64,14 @@ public class Correlator {
 
             //We get the name of the input of the data base
             XPath xPath = XPathFactory.newInstance().newXPath();
-            NodeList drinkDB = (NodeList) xPath.compile("//nombre").evaluate(docDB, XPathConstants.NODESET);
+            NodeList drinkDB = (NodeList) xPath.compile("//name").evaluate(docDB, XPathConstants.NODESET);
             Node D = drinkDB.item(0);
             Element d = (Element) D;
             String nameDB = d.getTextContent();
 
             //We get the name of the input of the replicator
             XPath xPath2 = XPathFactory.newInstance().newXPath();
-            NodeList drinkRep = (NodeList) xPath.compile("//nombre").evaluate(docRep, XPathConstants.NODESET);
+            NodeList drinkRep = (NodeList) xPath.compile("//name").evaluate(docRep, XPathConstants.NODESET);
             Node R = drinkRep.item(0);
             Element r = (Element) R;
             String nameRep = r.getTextContent();

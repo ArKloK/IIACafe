@@ -39,8 +39,8 @@ public class Splitter {
     public void run() throws Exception {
         Document doc = input.read(); //read the input slot
         XPath xPath = XPathFactory.newInstance().newXPath();
-        drinks = (NodeList) xPath.compile("//bebidas/*").evaluate(doc, XPathConstants.NODESET);
-        NodeList order = doc.getElementsByTagName("orden_id");
+        drinks = (NodeList) xPath.compile("//drinks/*").evaluate(doc, XPathConstants.NODESET);
+        NodeList order = doc.getElementsByTagName("order_id");
         Node ord = order.item(0);
 
         for (int i = 0; i < drinks.getLength(); i++) //For each node

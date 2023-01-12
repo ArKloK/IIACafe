@@ -56,14 +56,14 @@ public class Distributor {
             for (int i = 0; i < counter; i++) {
                 Document doc = input.read();
                 XPath xPath = XPathFactory.newInstance().newXPath();
-                NodeList nodo = (NodeList) xPath.compile("/bebida/tipo").evaluate(doc, XPathConstants.NODESET);
+                NodeList nodo = (NodeList) xPath.compile("/drink/type").evaluate(doc, XPathConstants.NODESET);
 
                 Node drk = nodo.item(0);
 
                 if (drk.getNodeType() == Node.ELEMENT_NODE) {
                     Element type = (Element) drk;
 
-                    if (type.getTextContent().equalsIgnoreCase("caliente")) {
+                    if (type.getTextContent().equalsIgnoreCase("hot")) {
                         output1.write(doc);
                     } else {
                         output2.write(doc);

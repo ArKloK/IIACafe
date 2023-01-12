@@ -25,17 +25,17 @@ public class Aggregator {
 
         //root element
         Document doc = docBuilder.newDocument();
-        Element rootElement = doc.createElement("cafe_orden");
+        Element rootElement = doc.createElement("cafe_order");
         doc.appendChild(rootElement);
 
         //order_id
-        Element order_id = doc.createElement("orden_id");
+        Element order_id = doc.createElement("order_id");
         Text nodeOrderIdValue = doc.createTextNode(id_order);
         order_id.appendChild(nodeOrderIdValue);
         rootElement.appendChild(order_id);
 
         //drinks
-        Element drinks = doc.createElement("bebidas");
+        Element drinks = doc.createElement("drinks");
         rootElement.appendChild(drinks);
 
         int numDrinks = input.getQueue().size();
@@ -46,17 +46,17 @@ public class Aggregator {
 
             //We get the name and stock...
             d.getDocumentElement().normalize();
-            NodeList nList = d.getElementsByTagName("nombre");
+            NodeList nList = d.getElementsByTagName("name");
             NodeList nList2 = d.getElementsByTagName("stock");
             String name = nList.item(0).getTextContent();//name
             String available = nList2.item(0).getTextContent();//stock
 
             //We create a drink...
-            Element drink = doc.createElement("bebida");
+            Element drink = doc.createElement("drink");
             drinks.appendChild(drink);
 
             //Adding name field...
-            Element name2 = doc.createElement("nombre");
+            Element name2 = doc.createElement("name");
             Text nodeNameValue = doc.createTextNode(name);
             name2.appendChild(nodeNameValue);
             drink.appendChild(name2);

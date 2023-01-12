@@ -6,7 +6,7 @@ import org.w3c.dom.Document;
 
 public class Slot {
 
-    private Queue<Document> testQueue = new LinkedList();
+    private final Queue<Document> testQueue = new LinkedList();
 
     public Queue getQueue() {
         return testQueue;

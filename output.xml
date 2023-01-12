@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><cafe_orden><orden_id>1</orden_id><bebidas><bebida><nombre>cafe</nombre><stock>true</stock></bebida><bebida><nombre>té</nombre><stock>true</stock></bebida><bebida><nombre>cola</nombre><stock>false</stock></bebida><bebida><nombre>cerveza</nombre><stock>false</stock></bebida></bebidas></cafe_orden>

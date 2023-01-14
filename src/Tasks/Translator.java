@@ -13,8 +13,8 @@ import javax.xml.transform.stream.StreamSource;
 
 public class Translator {
 
-    private Slot input;
-    private Slot output;
+    private final Slot input;
+    private final Slot output;
 
     public Translator(Slot input, Slot output) {
         this.input = input;

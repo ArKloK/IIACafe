@@ -29,7 +29,6 @@ public class InputConnector {
             dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(inputFile);
         } catch (IOException | ParserConfigurationException | DOMException | SAXException e) {
-            // TO DO
         }
 
         return value;

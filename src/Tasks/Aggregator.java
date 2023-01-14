@@ -11,8 +11,8 @@ import org.w3c.dom.Text;
 
 public class Aggregator {
 
-    private Slot input;
-    private Slot output;
+    private final Slot input;
+    private final Slot output;
 
     public Aggregator(Slot input, Slot output) {
         this.input = input;
@@ -23,7 +23,7 @@ public class Aggregator {
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
-        //root element
+        //elemento raiz
         Document doc = docBuilder.newDocument();
         Element rootElement = doc.createElement("cafe_order");
         doc.appendChild(rootElement);
@@ -34,40 +34,40 @@ public class Aggregator {
         order_id.appendChild(nodeOrderIdValue);
         rootElement.appendChild(order_id);
 
-        //drinks
+        //bebidas
         Element drinks = doc.createElement("drinks");
         rootElement.appendChild(drinks);
 
         int numDrinks = input.getQueue().size();
 
-        for (int i = 0; i < numDrinks; i++) //For each drink...
+        for (int i = 0; i < numDrinks; i++)
         {
             Document d = input.read();
 
-            //We get the name and stock...
+            //Obtenemos el nombre y el stock
             d.getDocumentElement().normalize();
             NodeList nList = d.getElementsByTagName("name");
             NodeList nList2 = d.getElementsByTagName("stock");
             String name = nList.item(0).getTextContent();//name
             String available = nList2.item(0).getTextContent();//stock
 
-            //We create a drink...
+            //Creamos bebida
             Element drink = doc.createElement("drink");
             drinks.appendChild(drink);
 
-            //Adding name field...
+            //Añadimos el campo nombre
             Element name2 = doc.createElement("name");
             Text nodeNameValue = doc.createTextNode(name);
             name2.appendChild(nodeNameValue);
             drink.appendChild(name2);
 
-            //Adding stock field (yes/no)
+            //Añadimos el campo stock
             Element stock = doc.createElement("stock");
             Text nodeStockValue = doc.createTextNode(available);
             stock.appendChild(nodeStockValue);
             drink.appendChild(stock);
         }
 
-        output.write(doc); //We write on the output slot
+        output.write(doc); //Escribimos en el slot de salida
     }
 }

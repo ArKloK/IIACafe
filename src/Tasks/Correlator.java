@@ -62,21 +62,21 @@ public class Correlator {
             Document docDB = inputDB.read();
             Document docRep = inputReplicator.read();
 
-            //We get the name of the input of the data base
+            //Cogemos el nombre del input de la base de datos
             XPath xPath = XPathFactory.newInstance().newXPath();
             NodeList drinkDB = (NodeList) xPath.compile("//name").evaluate(docDB, XPathConstants.NODESET);
             Node D = drinkDB.item(0);
             Element d = (Element) D;
             String nameDB = d.getTextContent();
 
-            //We get the name of the input of the replicator
+            //Cogemos el nombre del input del replicator
             XPath xPath2 = XPathFactory.newInstance().newXPath();
             NodeList drinkRep = (NodeList) xPath.compile("//name").evaluate(docRep, XPathConstants.NODESET);
             Node R = drinkRep.item(0);
             Element r = (Element) R;
             String nameRep = r.getTextContent();
 
-            //Return true if the String are equals, ignoring uppercases and lowercases. We write them on the outputs
+            //Devuelve true si los Strings son iguales, ignorando mayusculas y minusculas, y los escribimos en las salidas
             if (nameDB.equalsIgnoreCase(nameRep)) {
                 output1.write(docDB);
                 output2.write(docRep);

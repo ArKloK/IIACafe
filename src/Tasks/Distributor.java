@@ -14,7 +14,7 @@ import org.w3c.dom.NodeList;
 
 public class Distributor {
 
-    //Distributor needs two inputs slots
+    //Necesita dos slots de entrada
     private Slot input;
     private Slot output1;
     private Slot output2;

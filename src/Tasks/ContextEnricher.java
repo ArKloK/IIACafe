@@ -1,7 +1,6 @@
 package Tasks;
 
 import Ports.Slot;
-import java.util.logging.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

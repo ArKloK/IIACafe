@@ -6,8 +6,8 @@ import org.w3c.dom.Document;
 
 public class RequestPort {
 
-    private Slot input;
-    private Slot output;
+    private final Slot input;
+    private final Slot output;
     ConnectorDB conn;
 
     public RequestPort(Slot input, Slot output) {

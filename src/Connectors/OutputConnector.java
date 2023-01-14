@@ -18,12 +18,10 @@ import org.w3c.dom.Element;
 
 public class OutputConnector {
 
-    private String file_name;
     private DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     private DocumentBuilder builder;
     private DOMImplementation implementation;
     private Document document;
-    private Element root;
 
     public OutputConnector(Document docu) {
         this.document = docu;
@@ -33,10 +31,9 @@ public class OutputConnector {
         try {
             this.builder = factory.newDocumentBuilder();
             this.implementation = builder.getDOMImplementation();
-            this.file_name = name;
             this.document = implementation.createDocument(null, name, null);
             this.document.setXmlVersion("1.0");
-            this.root = document.getDocumentElement();
+            document.getDocumentElement();
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(OutputConnector.class.getName()).log(Level.SEVERE, null, ex);
         }

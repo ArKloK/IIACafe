@@ -4,9 +4,9 @@ import Ports.Slot;
 
 public class Merger {
 
-    private Slot input1;
-    private Slot input2;
-    private Slot output;
+    private final Slot input1;
+    private final Slot input2;
+    private final Slot output;
 
     public Merger(Slot input1, Slot input2, Slot output) {
         this.input1 = input1;

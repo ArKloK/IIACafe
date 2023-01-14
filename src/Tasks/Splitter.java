@@ -37,13 +37,13 @@ public class Splitter {
     }
 
     public void run() throws Exception {
-        Document doc = input.read(); //read the input slot
+        Document doc = input.read(); //Lee el slot de entrada
         XPath xPath = XPathFactory.newInstance().newXPath();
         drinks = (NodeList) xPath.compile("//drinks/*").evaluate(doc, XPathConstants.NODESET);
         NodeList order = doc.getElementsByTagName("order_id");
         Node ord = order.item(0);
 
-        for (int i = 0; i < drinks.getLength(); i++) //For each node
+        for (int i = 0; i < drinks.getLength(); i++) //Para cada nodo
         {
             Document doc2 = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
             Node b = drinks.item(i);
@@ -59,7 +59,7 @@ public class Splitter {
                 }
             }
 
-            output.write(doc2); //write on output slot
+            output.write(doc2); //Escribe en el slot de salida
         }
     }
 }

@@ -44,19 +44,20 @@ public class Replicator {
         int counter = input.getQueue().size();
 
         for (int i = 0; i < counter; i++) {
-            Document doc = input.read();//We read input slot of document
-            output1.write(doc); //We enqueue the document in each of the output slots
-            output2.write(doc); //We enqueue the document in each of the output slots
+            Document doc = input.read();//Leemos el el documento del slot de entrada
+            //Colocamos el documento en cada salida
+            output1.write(doc);
+            output2.write(doc);
         }
     }
 
     public void generaXML(Slot slot1, Slot slot2) throws Exception {
-        int n = slot1.getQueue().size();//Here the output to the translator is shown
+        int n = slot1.getQueue().size();
 
         for (int i = 0; i < n; i++) {
             Document doc = slot1.read();
             slot1.write(doc);
-            OutputConnector cs = new OutputConnector(doc);//Change the document to the one obtained in the output of the last task
+            OutputConnector cs = new OutputConnector(doc);
             cs.generate("input" + i);
         }
     }
